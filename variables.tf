@@ -32,7 +32,7 @@ variable "files" {
   type = map(object({
     path               = string
     url_of_template    = string
-    template_variables = object({})
+    template_variables = map(string)
   }))
   nullable = false
 }
