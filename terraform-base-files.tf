@@ -1,6 +1,6 @@
 resource "github_repository_file" "main" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = "main.tf"
   content             = module.main_template.rendered
   commit_message      = "feat: adding terraform aws main file"
@@ -10,8 +10,8 @@ resource "github_repository_file" "main" {
 }
 
 resource "github_repository_file" "variables" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = "variables.tf"
   content             = data.http.variables_template.response_body
   commit_message      = "feat: adding terraform aws variables file"
@@ -21,8 +21,8 @@ resource "github_repository_file" "variables" {
 }
 
 resource "github_repository_file" "tags" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = "tags.tf"
   content             = data.http.tags_template.response_body
   commit_message      = "feat: adding terraform aws tags file"
@@ -36,8 +36,8 @@ resource "github_repository_file" "tags" {
 }
 
 resource "github_repository_file" "terraformignore" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = ".terraformignore"
   content             = data.http.terraformignore_template.response_body
   commit_message      = "feat: adding terraformignore"

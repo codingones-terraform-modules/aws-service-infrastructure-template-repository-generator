@@ -1,6 +1,6 @@
 resource "github_repository_file" "readme" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = "README.md"
   content             = module.readme_template.rendered
   commit_message      = "feat: adding readme"
@@ -10,8 +10,8 @@ resource "github_repository_file" "readme" {
 }
 
 resource "github_repository_file" "license" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = "LICENSE.md"
   content             = module.license_template.rendered
   commit_message      = "feat: adding license"
@@ -21,8 +21,8 @@ resource "github_repository_file" "license" {
 }
 
 resource "github_repository_file" "gitignore" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = ".gitignore"
   content             = data.http.gitignore_template.response_body
   commit_message      = "feat: adding gitignore"

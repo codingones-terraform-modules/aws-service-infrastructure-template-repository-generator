@@ -13,8 +13,8 @@ locals {
 resource "github_repository_file" "files" {
   for_each = local.contentMap
 
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = each.key
   content             = each.value
   commit_message      = "feat: adding service template file"
