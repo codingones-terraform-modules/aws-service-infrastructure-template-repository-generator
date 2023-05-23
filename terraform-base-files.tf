@@ -58,8 +58,8 @@ module "main_template" {
   source       = "github.com/codingones-terraform-modules/terraform-remote-template-renderer"
   template_url = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/terraform/main.tf"
   template_variables = {
-    TERRAFORM_WORKSPACE = var.service
-    AWS_PROVIDER_REGION = "us-east-1"
+    __TERRAFORM_WORKSPACE = var.service
+    __AWS_PROVIDER_REGION = "us-east-1"
   }
 }
 

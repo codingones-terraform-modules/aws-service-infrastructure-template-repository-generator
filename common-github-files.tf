@@ -41,7 +41,7 @@ module "license_template" {
   source       = "github.com/codingones-terraform-modules/terraform-remote-template-renderer"
   template_url = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/license/LICENSE_MIT.md"
   template_variables = {
-    OWNER = "CodingOnes"
+    __OWNER = "CodingOnes"
   }
 }
 
@@ -49,8 +49,6 @@ module "readme_template" {
   source       = "github.com/codingones-terraform-modules/terraform-remote-template-renderer"
   template_url = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/readme/README_SERVICE_INFRASTRUCTURE_REPOSITORY.md"
   template_variables = {
-    SERVICE      = var.service
-    REPOSITORY   = var.github_repository
-    ORGANIZATION = var.github_organization
+    __SERVICE = var.service
   }
 }
